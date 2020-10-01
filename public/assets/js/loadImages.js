@@ -34,7 +34,7 @@ function loadImages() {
 }
 
 function getCard() {
-  for (let i=0; i <36; i++){
+  for (let i=0; i <3; i++){
     $.ajax({
       url: "https://api.scryfall.com/cards/random",
       method: "GET"
