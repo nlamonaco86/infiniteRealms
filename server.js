@@ -11,7 +11,7 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-db.Image.remove({})
+// db.Image.remove({})
 
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);

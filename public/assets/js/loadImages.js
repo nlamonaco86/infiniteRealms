@@ -33,32 +33,32 @@ function loadImages() {
     .then(() => initLazyImages());
 }
 
-// function getCard() {
-//   for (let i=0; i < 36; i++){
-//     $.ajax({
-//       url: "https://api.scryfall.com/cards/random?q=is%3Aold",
-//       method: "GET"
-//     }).then(function (response) {
-//       var description = response.name
-//       var image = response.image_uris.normal
+function getCard() {
+  for (let i=0; i < 36; i++){
+    $.ajax({
+      url: "https://api.scryfall.com/cards/random?q=is%3Aold",
+      method: "GET"
+    }).then(function (response) {
+      var description = response.name
+      var image = response.image_uris.normal
   
-//       let dbImage = {
-//         image: image,
-//         description: description,
-//         rating: 0
-//       }
+      let dbImage = {
+        image: image,
+        description: description,
+        rating: 0
+      }
   
-//       $.ajax({
-//         url: "api/images/create",
-//         method: "POST",
-//         data: dbImage,
-//       });
+      $.ajax({
+        url: "api/images/create",
+        method: "POST",
+        data: dbImage,
+      });
     
-//     });
-//   }
-// }
+    });
+  }
+}
 
-// getCard();
+getCard();
 
 function createCards(data) {
   const container = document.querySelector(".container");
