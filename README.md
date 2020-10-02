@@ -2,7 +2,7 @@
 
 ## Description:
 
-infinite Realms is a full-stack, progressive web application that uses Node.js, Express, MongoDB, and Mongoose with the Scryfall API to 
+infinite Realms is a full-stack, mobile-first, progressive web application that uses Node.js, Express, MongoDB, and Mongoose with the Scryfall API to 
 create a lazy-loading, "infinite" image gallery experience. 
 
 ## Development:
