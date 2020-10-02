@@ -1,4 +1,3 @@
-// getCard();
 loadImages();
 
 function createEl(htmlString = "", className) {
@@ -58,7 +57,7 @@ function getCard() {
   }
 }
 
-// getCard();
+getCard();
 
 function createCards(data) {
   const container = document.querySelector(".container");
