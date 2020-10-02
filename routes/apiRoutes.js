@@ -2,10 +2,12 @@ var db = require("../models");
 
 module.exports = function (app) {
   app.get("/api/images", function (req, res) {
-    //break it to find ONLY 1 specfic image
-    db.Image.find({}).then(function (dbImages) {
+    db.Image.deleteMany({}).then(function (dbImages) {
       res.json(dbImages);
     });
+    // db.Image.find({}).then(function (dbImages) {
+    //   res.json(dbImages);
+    // });
   });
 
   app.put("/api/images/:id", function (req, res) {

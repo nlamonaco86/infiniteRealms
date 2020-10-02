@@ -11,8 +11,6 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// db.Image.remove({})
-
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
@@ -23,3 +21,5 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/mtgPix", {
 app.listen(PORT, function() {
   console.log(`Now listening on port: http://localhost:${PORT}`);
 });
+
+
