@@ -129,6 +129,7 @@ function createRatingForm(image) {
 }
 
 function updateRating(event) {
+  event.preventDefault();
   const [id, , rating] = event.currentTarget.getAttribute("for").split("-");
 
   fetch(`/api/images/${id}`, {
