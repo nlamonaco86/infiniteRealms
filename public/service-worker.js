@@ -1,28 +1,14 @@
+const CACHE_NAME = "static-cache-v2";
+const DATA_CACHE_NAME = "data-cache-v1";
 const FILES_TO_CACHE = [
-    "/",
-    "./assets",
-    "./assets/css",
-    "./assets/css/00copyfont.txt",
-    "./assets/css/Antique Quest St.ttf",
-    "./assets/css/style.css",
-    "./assets/images",
-    "./assets/images/android-chrome-192x192.png",
-    "./assets/images/android-chrome-512x512.png",
-    "./assets/images/apple-touch-icon.png",
-    "./assets/images/favicon-16x16.png",
-    "./assets/images/favicon-32x32.png",
-    "./assets/images/favicon.ico",
-    "./assets/js",
-    "./assets/js/loadImages.js",
-    "./assets/screenshot.png",
-    "./favicon.ico",
-    "./index.html",
-    "./manifest.webmanifest",
-    "./service-worker.js",
-  ];
-  
-  const CACHE_NAME = "static-cache-v2";
-  const DATA_CACHE_NAME = "data-cache-v1";
+  "/",
+  "/index.html",
+  "/favicon.ico",
+  "/manifest.webmanifest",
+  "/assets/css/style.css",
+  "/assets/js/loadImages.js"
+];
+
 // install
 self.addEventListener("install", function (event) {
     // pre cache image data

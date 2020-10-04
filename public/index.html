@@ -5,12 +5,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link rel="stylesheet"
-  href="https://fonts.googleapis.com/css?family=MedievalSharp">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.3.1/materia/bootstrap.min.css" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
     integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous" />
   <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=MedievalSharp">
+  <link rel="manifest" href="manifest.webmanifest" />
   <script src="https://code.jquery.com/jquery-3.5.1.js"
   integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
   <title>infinite Realms</title>
@@ -18,29 +18,29 @@
 
 <body class="bg-grey">
   <nav class="navbar navbar-dark bg-red shadow">
-    <a class="nav-link text-white pad" href="./members"><i
-            class="fas fa-dragon fa-3x pad text-light"></i></a>
-    <h3 class="text-white fantasy">infinite Realms</h3>  
-        <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link text-white fantasy" href="./about"><i class="fas fa-question text-light"></i></a> 
-            </li>
-        </ul>
+    <a class="nav-link text-white pad fantasy" href="./"><i class="fas fa-dragon pad text-light"></i></a>
+    <h3 class="text-white fantasy">infinite Realms</h3>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link text-white fantasy" href="./about"><i class="fas fa-question text-light"></i></a>
+      </li>
+    </ul>
   </nav>
-  
+
   <div class="container"></div>
+
   <script src="/assets/js/loadImages.js"></script>
 
   <script>
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("service-worker.js")
-          .then(reg => {
-            console.log("We found your service worker file!", reg);
-          });
+        navigator.serviceWorker.register("service-worker.js").then(reg => {
+          console.log("We found your service worker file!", reg);
+        });
       });
     }
   </script>
+
 </body>
 
 </html>

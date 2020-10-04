@@ -1,12 +1,9 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const compression = require("compression");
-const db = require('./models')
+var express = require("express");
+var mongoose = require("mongoose");
 
-const app = express();
-const PORT = process.env.PORT || 8080;
+var app = express();
+var PORT = process.env.PORT || 8080;
 
-app.use(compression());
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -19,7 +16,5 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/mtgPix", {
 });
 
 app.listen(PORT, function() {
-  console.log(`Now listening on port: http://localhost:${PORT}`);
+  console.log(`Now listening at http://localhost:${PORT}`);
 });
-
-

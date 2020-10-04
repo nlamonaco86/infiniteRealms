@@ -6,7 +6,7 @@ body,
 
 .fantasy {
   font-family: 'MedievalSharp', serif;
-  font-size: 36px;
+  font-size: 26px;
   font-weight: bold;
 }
 
@@ -64,4 +64,46 @@ button.expand {
   position: absolute;
   top: 8px;
   right: 8px;
+}
+
+.padtop {
+  padding-top: 15px;
+}
+
+.white{
+  background-color: white
+}
+
+.bg-form{
+  padding: 20px;
+  background-color: white;
+}
+
+.shadow{
+  shadow: 3px 3px gray
+}
+
+.pad{
+padding: 10px;
+}
+
+.img-round{
+  border-radius: 50%;
+  max-width: 140px;
+}
+
+.radius{
+border-radius:10px;
+}
+
+.maxheight{
+max-height: 320px
+}
+
+.padhead{
+padding-top: 10px
+}
+
+.small{
+max-width: 240px
 }
