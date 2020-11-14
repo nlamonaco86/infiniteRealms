@@ -1,7 +1,6 @@
 let dataArray = [];
-loadImages();
 
-function createEl(htmlString = "", className) {
+const createEl = (htmlString = "", className) => {
   const el = document.createElement(htmlString);
   if (className) {
     el.setAttribute("class", className);
@@ -9,7 +8,7 @@ function createEl(htmlString = "", className) {
   return el;
 }
 
-function loadImages() {
+const loadImages = () => {
   fetch("/api/images")
     .then(res => res.json())
     .then(data => {
@@ -18,40 +17,54 @@ function loadImages() {
     });
 }
 
-function getCards() {
-  for (let i=0; i < 36; i++){
-    $.ajax({
-      url: "https://api.scryfall.com/cards/random?q=is%3Aold",
-      method: "GET"
-    }).then(function (response) {
-      var description = response.name
-      var image = response.image_uris.png
-  
-      let dbImage = {
-        image: image,
-        description: description,
-        rating: 0
-      }
-  
-      $.ajax({
-        url: "api/images/create",
-        method: "POST",
-        data: dbImage,
-      });
-    
-    });
+loadImages();
+
+const getCards = (event) => {
+  event.preventDefault();
+  for (let i = 0; i < 9; i++) {
+    fetch("https://api.scryfall.com/cards/random?q=is%3Aold", { type: "GET" }).then((response) => {
+      return response.json();
+    })
+      .then(response => {
+        console.log(response.image_uris)
+        if (response.error) { console.log(error) }
+        let dbImage = {
+          image: response.image_uris.normal,
+          description: response.name,
+          rating: 0
+        }
+        fetch('api/images/create', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', },
+          body: JSON.stringify(dbImage),
+        })
+          .then(response => {
+            if (response.error){ console.log(error) }
+          })
+
+      })
   }
 }
 
-getCards();
+// event listeners are conditional, to prevent errors in case the element is not there
+let imageButton = document.getElementById('loadMore');
+if (imageButton) {
+  imageButton.addEventListener('click', (event) => {
+    // Search for 9 more cards
+    getCards(event);
+    // Give Scryfall and Heroku a few seconds to work, so wait 3 seconds to reload the page
+    // and scroll to the bottom so we see the newest images
+    setTimeout(() => { window.location.reload("/") }, 3000);
+  })
+};
 
-function createCards(data) {
+const createCards = (data) => {
   const container = document.getElementsByClassName("container")[0];
   container.innerHTML = "";
   let lastRow;
   const row = createEl("div", "row");
 
-  return data.forEach(function(image, index) {
+  return data.forEach((image, index) => {
     const col = createEl("div", "col-md-4 mt-4");
     col.appendChild(createCard(image));
     if (index % 3 === 0) {
@@ -64,7 +77,7 @@ function createCards(data) {
   });
 }
 
-function createCard(image) {
+const createCard = (image) => {
   const card = createEl("div", "card");
   const imageContainer = createEl("div", "card__image-container");
   const img = createEl("img", "card-img-top card__image--cover");
@@ -93,7 +106,7 @@ function createCard(image) {
   return card;
 }
 
-function createRatingForm(image) {
+const createRatingForm = (image) => {
   const labelText = {
     1: "One Star",
     2: "Two Stars",
@@ -128,7 +141,7 @@ function createRatingForm(image) {
   return form;
 }
 
-function updateRating(event) {
+const updateRating = (event) => {
   event.preventDefault();
   const [id, , rating] = event.currentTarget.getAttribute("for").split("-");
 
@@ -138,12 +151,12 @@ function updateRating(event) {
     headers: {
       "Content-Type": "application/json"
     }
-  }).then(function() {
+  }).then(() => {
     loadImages();
-  }).catch(function(err) {
+  }).catch((err) => {
     console.log(err);
     dataArray.forEach((item) => {
-      if(item._id === id) {
+      if (item._id === id) {
         item.rating = rating;
       }
     });
