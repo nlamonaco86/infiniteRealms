@@ -83,10 +83,6 @@ button.expand {
   shadow: 3px 3px gray
 }
 
-.pad{
-padding: 10px;
-}
-
 .img-round{
   border-radius: 50%;
   max-width: 140px;

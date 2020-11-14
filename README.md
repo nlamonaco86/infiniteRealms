@@ -16,11 +16,30 @@ https://infiniterealms.herokuapp.com/
 
 ## Installation
 
-Simply clone the repo, and/or visit the deployed page link to begin.
+Clone the repo, and install all dependencies 
+```
+npm install 
+```
+Next, in your terminal run 
+```
+mongod
+```
+Open a new terminal while it's running, and run:
+```
+> mongo
+> use mtgPix
+```
+Open another terminal, navigate to the root directory, and run:
+```
+node server
+```
+You're now ready to endlessly scroll through old Magic cards...
 
 ## Usage
 Gallery view
-![infinite Realms](./public/assets/screenshot.png)  
+![infinite Realms](./public/assets/screenshot2.png)  
+![infinite Realms](./public/assets/screenshot3.png)  
+![infinite Realms](./public/assets/screenshot4.png)  
 
 ## Questions
 

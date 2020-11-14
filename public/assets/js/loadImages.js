@@ -52,6 +52,7 @@ if (imageButton) {
   imageButton.addEventListener('click', (event) => {
     // Search for 9 more cards
     getCards(event);
+    imageButton.innerHTML = "LOADING...";
     // Give Scryfall and Heroku a few seconds to work, so wait 3 seconds to reload the page
     // and scroll to the bottom so we see the newest images
     setTimeout(() => { window.location.reload("/") }, 3000);
@@ -84,15 +85,15 @@ const createCard = (image) => {
   img.setAttribute("src", image.image);
   img.setAttribute("alt", image.description);
 
-  const cardBody = createEl("div", "card-body");
+  const cardBody = createEl("div", "mt-2");
 
-  const ratingFormContainer = createEl("div", "rating d-flex justify-content-start");
+  const ratingFormContainer = createEl("div", "rating d-flex justify-content-center");
   ratingFormContainer.setAttribute("data-id", image._id);
   ratingFormContainer.setAttribute("data-rating", image.rating);
 
   const ratingForm = createRatingForm(image);
 
-  const cardText = createEl("p", "card-text font-weight-bold mt-2");
+  const cardText = createEl("p", "lead font-weight-bold mt-2 d-flex justify-content-center");
 
   cardText.innerText = `${image.description} (${image.rating})`;
 
@@ -129,7 +130,7 @@ const createRatingForm = (image) => {
     label.setAttribute("for", `${image._id}-star-${i}`);
     const labelSpan = createEl("span", "visuallyhidden");
     labelSpan.innerText = labelText[i];
-    const star = createEl("i", `fa-star ${image.rating >= i ? "fas" : "far"}`);
+    const star = createEl("i", `fa-star fa-2x ${image.rating >= i ? "fas" : "far"}`);
 
     label.appendChild(labelSpan);
     label.appendChild(star);
